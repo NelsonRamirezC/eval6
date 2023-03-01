@@ -9,19 +9,11 @@
             }
         },
         {
-            "id": "e75934",
-            "nombre": "perrito 2",
+            "id": "d5329b",
+            "nombre": "Perrito 2",
             "propietario": {
                 "run": "2.222.222-2",
-                "nombre": "Isabel"
-            }
-        },
-        {
-            "id": "97c035",
-            "nombre": "perrito 3",
-            "propietario": {
-                "run": "2.222.222-2",
-                "nombre": "Isabel"
+                "nombre": "Carlos"
             }
         }
     ]

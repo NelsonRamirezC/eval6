@@ -1,0 +1,59 @@
+{{!-- creamos el form --}}
+<div class="container">
+    <form id="formMascotas">
+        <div class="mb-3">
+            <label for="" class="form-label">nombre mascota</label>
+            <input type="text" class="form-control" name="mascota" id="mascota" placeholder="ingrese nombre" required>
+            <div>
+        <div class="mb-3">
+            <label for="" class="form-label">nombre propietario</label>
+            <input type="text" class="form-control" name="propietario" id="propietario" placeholder="ingrese nombre propietario" required>
+            <div>
+        <div class="mb-3">
+            <label for="" class="form-label">run propietario</label>
+            <input type="text" class="form-control" name="run" id="run" placeholder="ingrese run propietario" required>
+        <div>
+        <div class="m-3">
+            <button type="submit" class="btn btn-success">Ingresar</button>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    //formMascotas
+    const formulario = document.querySelector('#formMascotas')
+    
+    formulario.addEventListener("submit", (event) => {
+        event.preventDefault();
+        //console.log("Capturando evento submit")
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        let nuevaMascota = {
+            mascota: mascota.value,
+            propietario: propietario.value,
+            run: run.value
+        }
+
+        fetch("http://localhost:3000/mascotas", {
+            method: "post",
+            headers,
+            body: JSON.stringify(nuevaMascota),
+            redirect: "follow"
+        }).then(response => response.json())
+        .then(data => {
+            if(data.code != 201){
+                alert(data.message)
+            }else {
+                alert("Mascota agregada correctamente.")
+                location.href ="/"
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+        
+
+    })
+    
+</script>

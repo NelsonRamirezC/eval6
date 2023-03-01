@@ -132,3 +132,7 @@ app.get("/detalle_mascota/:id", (req, res) => {
         mascota
     })
 })
+
+app.get("/formulario", (req, res) => {
+    res.render("nueva_mascota")
+})
