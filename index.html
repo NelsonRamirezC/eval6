@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="enviarDatos()">Enviar</button>
+
+
+    <script>
+        /* fetch("http://localhost:3000/mascotas")
+            .then(response => response.json())
+            .then(data => {
+                let mascotas = data.data.mascotas;
+                console.log(mascotas[0])
+            }) */
+
+            const enviarDatos = () => {
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+
+                let datos = {
+                    mascota: "perrito 2",
+                    propietario: "Isabel",
+                    run: "2.222.222-2"
+                }
+
+                var requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: JSON.stringify(datos)
+                };
+
+                fetch("http://localhost:3000/mascotas", requestOptions)
+                .then(response => response.json())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+            }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<h1 class="text-center">Página principal</h1>
+
+<section class="mt-5">
+    <h2 class="text-center">Datos de los animales registrados.</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre Mascota</th>
+                    <th scope="col">Nombre propietario</th>
+                    <th scope="col">RUN Propietario</th>
+                    <th scope="col">Datos</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#each mascotas}}
+                    <tr>
+                        <th scope="row">{{this.id}}</th>
+                        <td>{{this.nombre}}</td>
+                        <td>{{this.propietario.nombre}}</td>
+                        <td>{{this.propietario.run}}</td>
+                        <td><a href="/detalle_mascota/{{this.id}}" class="btn btn-primary">Ver más</a></td>
+                    </tr>
+                {{/each}}
+
+            </tbody>
+    </table>
+</section>
